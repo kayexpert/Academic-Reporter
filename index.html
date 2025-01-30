@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Academic Report Generator</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Side Navigation Bar -->
+    <div class="sidebar">
+      <ul>
+        <li><a href="#" onclick="showPage('students')">Enter Student Names</a></li>
+        <li><a href="#" onclick="showPage('subjects')">Enter Subjects</a></li>
+        <li><a href="#" onclick="showPage('grades')">Grades and Remarks</a></li>
+        <li><a href="#" onclick="showPage('scores')">Enter Scores</a></li>
+        <li><a href="#" onclick="showPage('report')">Generate Report</a></li>
+      </ul>
+    </div>
+
+    <!-- Content Area -->
+    <div class="content">
+      <!-- Page: Enter Student Names -->
+      <div id="students" class="page">
+        <h2>Enter Student Names</h2>
+        <input type="text" id="firstNameInput" placeholder="First Name">
+        <input type="text" id="lastNameInput" placeholder="Last Name">
+        <button onclick="addStudent()">Add Student</button>
+        <table id="studentTable">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="studentTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Page: Enter Subjects -->
+      <div id="subjects" class="page hidden">
+        <h2>Enter Subjects</h2>
+        <input type="text" id="subjectInput" placeholder="Enter subject name">
+        <button onclick="addSubject()">Add Subject</button>
+        <table id="subjectTable">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="subjectTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Page: Grades and Remarks -->
+      <div id="grades" class="page hidden">
+        <h2>Grades and Remarks</h2>
+        <input type="number" id="minScoreInput" placeholder="Min. Score">
+        <input type="number" id="maxScoreInput" placeholder="Max. Score">
+        <input type="text" id="gradeInput" placeholder="Grade">
+        <input type="text" id="remarkInput" placeholder="Remark">
+        <button onclick="addGrade()">Add Grade</button>
+        <table id="gradeTable">
+          <thead>
+            <tr>
+              <th>Min. Score</th>
+              <th>Max. Score</th>
+              <th>Grade</th>
+              <th>Remark</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="gradeTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Page: Enter Scores -->
+      <div id="scores" class="page hidden">
+        <h2>Enter Class and Exam Scores</h2>
+        <select id="studentSelect"></select>
+        <table id="scoreTable">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Class Score</th>
+              <th>Exams Score (100%)</th>
+              <th>Exams Score (50%)</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="scoreTableBody"></tbody>
+        </table>
+      </div>
+
+      <!-- Page: Generate Report -->
+      <div id="report" class="page hidden">
+        <h2>Generate Report</h2>
+        <select id="reportStudentSelect"></select>
+        <button onclick="generateReport()">Generate Report</button>
+        <table id="reportTable" class="hidden">
+          <thead>
+            <tr>
+              <th>Subject</th>
+              <th>Class Score</th>
+              <th>Exams Score (50%)</th>
+              <th>Total Score</th>
+              <th>Grade</th>
+              <th>Remark</th>
+            </tr>
+          </thead>
+          <tbody id="reportBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
